@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Details.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  <title>Product Details</title>
+</head>
+
+<body>
+  <div id="header-container"></div>
+
+  <div class="details-container">
+    <div class="header">
+      <a href="Product.html" class="tooltip"><i class="fa-solid fa-arrow-left"></i>
+        <span class="tooltip-text">Back</span></a>
+      	<div class="iconCart">
+        	<i class="fa-solid fa-cart-shopping"></i>
+        	<div class="totalQuantity">0</div>
+     	</div>
+    </div>
+    <div class="detail">
+      <div class="image">
+        <img id="productImage" src="">
+      </div>
+      <div class="content">
+        <div class="name" id="productName">Loading...</div>
+        <select class="size-select" onchange="updatePrice(this)">
+          <option>Size</option>
+          <option value="500" data-size="1.5">1.5 feet - ₹500</option>
+          <option value="1000" data-size="2">2 feet - ₹1000</option>
+          <option value="2000" data-size="2.5">2.5 feet - ₹2000</option>
+          <option value="3000" data-size="3">3 feet - ₹3000</option>
+        </select>
+        <div class="price" id="productPrice">₹0</div>
+        <div class="buttons">
+          <a href="Checkout.html">
+            <button id="checkoutButton">Checkout</button>
+          </a>
+          <button class="addCart" id="addToCart">
+            Add To Cart
+            <i class="fa-solid fa-cart-shopping"></i>
+          </button>
+        </div>
+        <div class="description" id="productDescription"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cart">
+    <h2>CART</h2>
+    <div class="listCart"></div>
+    <div class="buttons">
+      <div class="close">CLOSE</div>
+      <div class="checkout"><a href="Checkout.html">CHECKOUT</a></div>
+    </div>
+    </div>
+
+  <div id="footer-container"></div>
+  <script src="Script.js"></script>
+  <script src="Details.js"></script>
+
+  
+ 
+  </body>
+  </html>

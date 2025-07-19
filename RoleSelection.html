@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="RoleSelection.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+<title>Role Selection</title>
+</head>
+<body>
+	<div id="header-container"></div>
+	
+	<div class="roleSelection-container">
+			<div id="welcomeCard" class="welcome-card">
+				<div class="role-buttons">
+					<p><b>Please select your role:</b></p>
+					<button id="adminButton" class="role-button" onclick="showPasswordField('admin')" aria-label="Admin Login">Admin</button>
+					<a href="Login.html"><button id="customerButton" class="role-button">Customer</button></a>
+				</div>
+			</div>
+			<div id="passwordField" class="hidden password-card">
+				<h1>Enter Password:</h1>
+				<form action="Admin" method="post">
+					<input type="password" id="password" name="pass" class="password" required/>
+					<i class="fa-solid fa-eye eye-icon" onclick="togglePassword()"></i>
+					<i class="fa-solid fa-eye-slash eye-icon" onclick="togglePassword()"></i>	
+					<button type="submit" id="proceedBtn">Proceed</button> 
+        			<a href="RoleSelection.html"><button type="button">Back</button></a>
+        		</form>
+			</div>
+	</div>
+	
+		
+	<div id="footer-container"></div>
+	<script src="Script.js"></script>
+	<script src="RoleSelection.js"></script>
+</body>
+</html>

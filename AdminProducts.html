@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="AdminProducts.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <title>Products Data</title>
+</head>
+<body>
+    <div id="header-container"></div>
+  
+    <div class="admin-container">
+    	<div class="head">
+    		<a href="Admin.html" class="tooltip"><i class="fa-solid fa-arrow-left"></i>
+        	<span class="tooltip-text"></span></a>
+        	<a href="ViewProduct" class="viewProduct">View Products</a> 
+        </div>
+        <div class="admin-product-form-container">
+            <form action="Product" method="post" >
+            <table>
+                <h3>add a new product</h3>
+                <tr>
+                	<td>Product Name</td>
+                	<td><input type="text" name="product_name" class="box"/></td>
+                </tr>
+                <tr>
+                	<td>Product Price</td>
+                	<td><input type="number" name="product_price" class="box"/></td>
+                </tr>
+                <tr>
+                	<td>Product Size</td>
+                	<td><select name="product_size" class="box">
+							<option>1.5</option>
+							<option>2</option>
+							<option>2.5</option>
+							<option>3</option>
+						</select></td>
+                </tr>
+                <tr>
+                	<td>Product Quantity</td>
+                	<td><input type="number" name="product_qty" class="box"/></td>
+                </tr>
+                <tr>
+                	<td>Product Description</td>
+                	<td><input type="text" name="product_description" class="box"></td>
+                </tr>
+                <tr>
+                	<td>Product Image</td>
+                	<td><input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box"></td>
+                </tr>
+                <tr>
+                	<td colspan="2"><input type="submit" class="btn"value="Add product"/></td>
+                </tr>
+			</table>
+            </form>
+        </div>      
+    </div>
+    
+    <div id="footer-container"></div>
+    <script src="Script.js"></script>
+</body>
+</html>

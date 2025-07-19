@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Checkout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <title>Checkout</title>
+</head>
+
+<body>
+  <div id="header-container"></div>
+
+  <div class="container">
+        <h2>Payment</h2>
+        <form>
+            
+            <label>Shipping Address</label>
+            <input type="text" placeholder="Enter your address" required>
+            
+            <label>Payment Method</label>
+            <select id="paymentMethod" onchange="togglePaymentFields()">
+                <option value="upi">UPI QR Code</option>
+                <option value="cod">Cash on Delivery (COD)</option>
+            </select>
+            
+            <div id="upiFields" class="hidden">
+                <div class="qr-container">
+                    <p>Scan the QR code to pay via UPI:</p>
+                    <img src="images/scanner.jpeg" alt="UPI QR Code">
+                    <p>UPI ID: example@upi</p>
+                    <div>
+    					<p>Payment Status: <span id="paymentStatus">Loading...</span></p>
+					</div>
+                    <button type="button" onclick="confirmUPIPayment()">I Have Paid</button>
+                </div>
+            </div>
+            
+            <div id="codFields" class="hidden">
+                <p>Cash on Delivery selected. Please ensure you have the exact amount ready.</p>
+            </div>
+            
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+
+    
+
+  <div id="footer-container"></div>
+
+  <script src="Script.js"></script>
+
+  <script>
+        function togglePaymentFields() {
+            let method = document.getElementById("paymentMethod").value;
+            document.getElementById("upiFields").classList.toggle("hidden", method !== "upi");
+            document.getElementById("codFields").classList.toggle("hidden", method !== "cod");
+        }
+
+        function confirmUPIPayment() {
+            fetch('updatePayment?order_id=101&status=Paid')
+                .then(response => response.text())
+                .then(data => {
+                    alert("Payment Confirmed!");
+                    
+                    // Move cart to order history & then clear the cart
+                    fetch('ClearCartServlet')
+                        .then(response => response.text())
+                        .then(() => {
+                            alert("Cart Cleared and Order Saved!");
+                            window.location.href = 'OrderSuccess.html';  // Redirect after clearing the cart
+                        });
+                });
+        }
+
+
+        function fetchPaymentStatus(orderId) {
+            fetch(`http://localhost:8080/getPaymentStatus?order_id=${orderId}`)
+                .then(response => response.json())
+                .then(data => {
+                    let statusElement = document.getElementById("paymentStatus");
+                    statusElement.innerText = data.payment_status;
+                    statusElement.className = data.payment_status.toLowerCase();
+                });
+        }
+    </script>
+</body>
+
+</html>

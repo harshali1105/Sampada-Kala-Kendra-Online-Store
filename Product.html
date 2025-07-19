@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Product.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <title>Product</title>
+</head>
+
+<body>
+  <div id="header-container"></div>
+
+  <div class="product-container">
+    <div class="header">
+      <div class="search-box">
+        <input type="text" placeholder="Search Products Here" id="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div class="buttons">
+        <button type="button" data-btn="all" class="category-btn">All Idols</button>
+        <button type="button" data-btn="1" class="category-btn">Eco-Friendly Idols</button>
+        <button type="button" data-btn="2" class="category-btn">Designer Idols</button>
+      </div>
+      <div class="user">
+      	<a href="Login.html"><i class="fa-solid fa-user"></i></a>
+      </div>
+      <div class="iconCart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <div class="totalQuantity">0</div>
+      </div>
+      </div>
+
+    <div class="listProduct">
+    </div>
+  </div>
+
+  <div class="cart">
+    <h2>CART</h2>
+    <div class="listCart">
+    </div>
+
+    <div class="buttons">
+      <div class="close">CLOSE</div>
+      <div class="checkout">
+        <a href="Checkout.html">
+          CHECKOUT
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-container"></div>
+
+  <script src="Script.js"></script>
+  <script src="Product.js"></script>
+  </body>
+  </html>

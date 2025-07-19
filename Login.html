@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="Login.css">
+    <title>Login</title>
+</head>
+<body>
+    <div id="header-container"></div>
+
+<main>
+    <section class="container-form forms">
+        <div class="form login">
+            <div class="form-content">
+                <h1>Login</h1>
+
+                <form action="/Sampada_Kala_Kendra/SignIn" method="post">
+                    <div class="field input-field">
+                        <input type="email" placeholder="Email" name="email" class="input"  required>
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" placeholder="Password" name="pass" class="password" required>
+                        <i class="fa-solid fa-eye eye-icon"></i>
+                        <i class="fa-solid fa-eye-slash eye-icon"></i>
+                    </div>
+
+                    <div class="field button-field">
+                        <button>Login</button>
+                    </div>
+                </form>
+
+                    <div class="form-link">
+                        <span>Don't have an account? <a href="#" class="link signup-link"> SignUp</a></span>
+                    </div>
+            </div>
+
+        </div>
+
+
+
+       <!--SignUp Form--> 
+
+        <div class="form signup">
+            <div class="form-content">
+                <h1>SignUp</h1>
+
+                <form action="/Sampada_Kala_Kendra/SignUp" method="post">
+                    <div class="field input-field">
+                        <input type="text" placeholder="First Name" class="input" name="fname" required>
+                    </div>
+                    
+                    <div class="field input-field">
+                        <input type="text" placeholder="Last Name" class="input" name="lname" required>
+                    </div>
+                    
+                    <div class="field input-field">
+                        <input type="tel" placeholder="Contact No" class="input" name="contact" required>
+                    </div>
+
+					<div class="field input-field">
+                    	<input type="text" placeholder="Loaction" class="input" name="location" required>
+                    </div>
+                    
+                    <div class="field input-field">
+                        <input type="email" placeholder="Email" class="input" name="email" required>
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" placeholder="Password" class="password" name="pass" required>
+                        <i class="fa-solid fa-eye eye-icon"></i>
+                        <i class="fa-solid fa-eye-slash eye-icon"></i>
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" placeholder="Confirm Password" class="password" name="cpass" required>
+                        <i class="fa-solid fa-eye eye-icon"></i>
+                        <i class="fa-solid fa-eye-slash eye-icon"></i>
+                    </div>
+
+
+                    <div class="field button-field">
+                        <button>SignUp</button>
+                    </div>
+                </form>
+
+                    <div class="form-link">
+                        <span>Already have an account? <a href="#" class="link login-link"> Login</a></span>
+                    </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+
+     <!--Start Footer-->
+     <div id="footer-container"></div>
+
+
+     <script src="Script.js"></script>
+    
+    
+
+</body>
+</html>
+

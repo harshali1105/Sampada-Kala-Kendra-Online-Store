@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="Checkout.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+<body>
+	<div id='header-container'></div>
+		<div class="container">
+		<form action="PlaceOrder" method="post">
+    		<h2>Order Summary</h2>
+
+    		<div id="orderDetails"></div>
+
+    		<h3>Shipping Address</h3>
+    		<input type="text" name="address" placeholder="Enter your address" required>
+
+    		<h3>Payment Method</h3>
+    		<select name="paymentMethod" id="paymentMethod" onchange="togglePaymentFields()">
+        		
+        		<option value="COD">Pay at Store (Pickup Only)</option>
+        		<option value="UPI">UPI QR Code</option>
+    		</select>
+			<div id="upiFields" class="hidden">
+                <div class="qr-container">
+                    <p>Scan the QR code to pay via UPI:</p>
+                    <img src="images/scanner.jpeg" alt="UPI QR Code">
+                    <p>UPI ID: example@upi</p>
+                    
+                </div>
+            </div>
+            
+            <p class="note"><strong>Note:</strong> Cash on Delivery is not available. If you choose store pickup, please pay when you come to collect the Ganesha idol.</p>
+	 		
+    		
+
+    		<button type="submit">Place Order</button>
+		</form>
+		</div>
+
+		
+	<div id='footer-container'></div>
+	<script src="Script.js"></script>
+	
+	<script>
+    // Fetch session data from servlet and display
+    fetch('SummaryServlet')
+    .then(response => response.json())
+    .then(data => {
+    	console.log(data);
+        let detailsHTML = "";
+        data.cartItems.forEach(item => {
+            detailsHTML += `<p>${item.productName} - ₹${item.productPrice} x ${item.productQty} = ₹${item.productSubTotal}</p>`;
+        });
+        document.getElementById("orderDetails").innerHTML = detailsHTML;
+        document.getElementById("totalAmount").innerText = data.total;
+    });
+    function togglePaymentFields() {
+        let method = document.getElementById("paymentMethod").value;
+        let upiFields = document.getElementById("upiFields");
+        if (method === "UPI") {
+            upiFields.classList.remove("hidden");
+        } else {
+            upiFields.classList.add("hidden");
+        }
+        
+    }
+
+    function confirmUPIPayment() {
+        if (confirm("Have you completed the UPI payment?")) {
+            fetch('UpdatePayment')
+                .then(response => response.text())
+                .then(data => {
+                    alert(data); // ✅ success message
+                    window.location.href = 'OrderSuccess.html';
+                });
+        }
+    }
+    
+    
+    
+</script>
+</body>
+</html>
