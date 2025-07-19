@@ -74,7 +74,7 @@ public class ProductDetailsMain extends HttpServlet{
         out.println("</div>");
         out.println("<div id='footer-container' ></div>");
         
-        out.println("<script src='Script.js'></script>");
+        out.println("<script src='script.js'></script>");
         out.println("<script>");
         out.println("function updatePrice(selectElement) {");
         out.println("    const selectedOption = selectElement.options[selectElement.selectedIndex];");
