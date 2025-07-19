@@ -88,7 +88,7 @@ public class DisplayProductMain extends HttpServlet{
 		out.print("</div>");
 		out.print("</div>");
 		out.print("<div id='footer-container'></div>");
-		out.print("<script src='Script.js'></script>");
+		out.print("<script src='script.js'></script>");
 		out.print("<script>");
 		out.print("document.getElementById('search-box').addEventListener('keyup', function() {");
         out.print("   let searchValue = this.value.toLowerCase();");
