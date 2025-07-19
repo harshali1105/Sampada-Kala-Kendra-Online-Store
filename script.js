@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 async function loadHeaderFooter() {
 
   try {
-    const response = await fetch("Home.html");
+    const response = await fetch("index.html");
     if (!response.ok) throw new Error("Failed to fetch Home.html");
 
     const text = await response.text();
